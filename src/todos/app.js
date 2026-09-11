@@ -1,5 +1,5 @@
-import { renderTodos, renderPendingTodos, renderClearCompletedBtn } from './use-cases/archivo-barril';
-import todoStore, { Filters } from '../store/todo.store';
+import { renderTodos, renderPendingTodos, renderClearCompletedBtn, toggleTodosState } from './use-cases/archivo-barril';
+import todoStore from '../store/todo.store';
 import html from './app.html?raw';
 
 /** @type {number} */
@@ -11,6 +11,7 @@ const ids = {
 	count: '#pending-count',
 	todoList: '.todo-list',
 	filters: '.filtro',
+    toggleAll: '#toggle-all',
 };
 
 
@@ -27,6 +28,9 @@ export const App = (elementId) => {
         renderPendingTodos(ids.count);
     };
 
+    /**
+     * 
+     */
     const updateClearCompletedBtn = () => {
         renderClearCompletedBtn(ids.clearCompleted);
     };
@@ -40,12 +44,18 @@ export const App = (elementId) => {
         renderTodos( ids.todoList, todos );
     };
 
+    /**
+     * 
+     */
     const refreshUI = () => {
         updatePendingCount();
+        updateClearCompletedBtn();
         displayTodos();
     };
 
-
+    /**
+     * 
+     */
     const mount = ()=>{
         const app = document.createElement('div');
         app.innerHTML = html;
@@ -58,6 +68,7 @@ export const App = (elementId) => {
     const todoInput = document.querySelector(ids.newTodoInput);
     const filtersLIs = document.querySelectorAll(ids.filters);
     const todoListUL = document.querySelector(ids.todoList);
+    const toggleAllBtn = document.querySelector(ids.toggleAll);
 
     // Listeners
     todoInput.addEventListener('keyup', (event)=>{
@@ -97,5 +108,10 @@ export const App = (elementId) => {
 		    todoStore.setFilter(event.target.dataset.filter);
 		    displayTodos();
 	    });
+    });
+
+    toggleAllBtn.addEventListener('click', (event) => {
+        toggleTodosState();
+        refreshUI();
     });
 }

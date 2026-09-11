@@ -6,7 +6,7 @@ export const Filters = {
     Pending: 'Pending',
 }
 
-const state = {
+export const state = {
     todos: [
     ],
     filter: Filters.All,
