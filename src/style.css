@@ -1,7 +1,32 @@
-html,
+html {
+	margin-top: 20px;
+	min-height: 100%;
+	background: linear-gradient(
+		160deg,
+		#f5efe6 0%,
+		#cfe0d6 30%,
+		#7fa896 60%,
+		#2e6b5e 85%,
+		#073f37 100%
+	);
+	background-attachment: fixed;
+}
+
 body {
-	margin: 0;
-	padding: 0;
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	color: #111111;
+	min-width: 230px;
+	max-width: 550px;
+	margin: 0 auto;
+	/* -webkit-font-smoothing: antialiased; */
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 300;
+}
+
+#tareas {
+	padding-top: 3%;
+	padding-bottom: 10%;
 }
 
 button {
@@ -9,7 +34,7 @@ button {
 	padding: 0;
 	border: 0;
 	background: none;
-	font-size: 100%;
+	font-size: 90%;
 	vertical-align: baseline;
 	font-family: inherit;
 	font-weight: inherit;
@@ -20,17 +45,8 @@ button {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-body {
-	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	line-height: 1.4em;
-	background: #eee9d7;
-	color: #111111;
-	min-width: 230px;
-	max-width: 550px;
-	margin: 0 auto;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-weight: 300;
+.clear-completed:hover {
+	background-color: #297159;
 }
 
 :focus {
@@ -42,7 +58,7 @@ body {
 }
 
 .todoapp {
-	background:#f6f6f6;
+	background:#fff;
 	margin: 130px 0 40px 0;
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
@@ -74,10 +90,15 @@ body {
 	font-size: 80px;
 	font-weight: 200;
 	text-align: center;
-	color: #b83f45;
-	-webkit-text-rendering: optimizeLegibility;
-	-moz-text-rendering: optimizeLegibility;
-	text-rendering: optimizeLegibility;
+	/* -webkit-text-rendering: optimizeLegibility; */
+	/* -moz-text-rendering: optimizeLegibility; */
+	text-rendering: auto;
+
+	background: linear-gradient(160deg, #073f37, #2e6b5e, #6fae97);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
 }
 
 .new-todo,
@@ -204,7 +225,7 @@ body {
 }
 
 .todo-list li .toggle:checked + label {
-	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%231e8449%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
 }
 
 .todo-list li label {
@@ -238,7 +259,7 @@ body {
 }
 
 .todo-list li .destroy:hover {
-	color: #af5b5e;
+	color: #ff0008;
 }
 
 .todo-list li .destroy:after {
@@ -314,6 +335,7 @@ body {
 
 .filters li a:hover {
 	border-color: rgba(175, 47, 47, 0.1);
+	background-color: #297159;
 }
 
 .filters li a.selected {
