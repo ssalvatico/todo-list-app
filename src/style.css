@@ -22,7 +22,6 @@ body {
 	margin: 0 auto;
 	padding: 0 15px;
 	box-sizing: border-box;
-	-moz-osx-font-smoothing: grayscale;
 	font-weight: 300;
 }
 
@@ -44,7 +43,6 @@ button {
 	-webkit-appearance: none;
 	appearance: none;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 :focus {
@@ -107,7 +105,6 @@ button {
 	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 .new-todo {
